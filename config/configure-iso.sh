@@ -39,8 +39,8 @@ rm -f /var/lib/rakuos/setup-complete
 rm -rf /var/cache/libdnf5
 mkdir -p /var/lib/rakuos
 if [[ -f /usr/share/rakuos/packages-live.list ]]; then
-    cp /usr/share/rakuos/packages.list /var/lib/rakuos/packages-live.list
-    sed -i -e '$a\' /var/lib/rakuos/packages-live.list
+    cp /usr/share/rakuos/packages-live.list /var/lib/rakuos/packages.list
+    sed -i -e '$a\' /var/lib/rakuos/packages.list
 fi
 
 # Variables
