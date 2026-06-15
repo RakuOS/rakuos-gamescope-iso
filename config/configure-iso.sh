@@ -54,17 +54,6 @@ echo "RakuOS release $VERSION_ID ($VERSION_CODENAME)" >/etc/system-release
 # Get shared artwork and system files from iso-base
 git clone --depth 1 --quiet https://gitlab.com/rakuos/iso/iso-base.git /root/packages
 
-# Autostart the Qt installer on login (KDE respects XDG autostart)
-install -Dm644 /dev/stdin /etc/xdg/autostart/rakuos-installer.desktop << 'EOF'
-[Desktop Entry]
-Name=Install RakuOS
-Comment=Install RakuOS to your computer
-Exec=pkexec rakuos-installer-qt
-Icon=drive-harddisk-scsi
-Type=Application
-X-KDE-autostart-condition=rakuos-installer-qt|General|Autostart|true
-EOF
-
 ### Desktop-environment specific tweaks ###
 
 # Use GSK_RENDERER=gl for NVIDIA — workaround for GTK apps not opening
