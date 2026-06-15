@@ -20,7 +20,7 @@ flatpak update --system --appstream -y
 dnf -qy versionlock clear
 
 # Install RakuOS installer (Qt frontend + common backend + fisherman)
-dnf install -qy rakuos-installer-qt
+dnf install -qy rakuos-installer-qt libblockdev-{btrfs,lvm,dm}
 
 # Read packages into array and install
 mapfile -t PACKAGES < <(
