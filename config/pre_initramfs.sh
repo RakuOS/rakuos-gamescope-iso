@@ -18,7 +18,7 @@ kernel_pkgs=(
 dnf -y versionlock delete "${kernel_pkgs[@]}" 2>/dev/null || true
 dnf --setopt=protect_running_kernel=False -y remove "${kernel_pkgs[@]}" 2>/dev/null || true
 (cd /usr/lib/modules && rm -rf -- ./*)
-dnf -y --repo fedora,updates --setopt=tsflags=noscripts install kernel kernel-core
+dnf -y --repo fedora,updates --setopt=tsflags=noscripts install kernel kernel-core kernel-devel kernel-modules
 
 dnf -y install \
     --exclude=kernel-p03 \
