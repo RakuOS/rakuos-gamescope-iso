@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Build the RakuOS Kde ISO locally using the rakuos-forge binary.
+# Build the RakuOS Gamescope ISO locally using the rakuos-forge binary.
 #
 # Usage: ./build-local.sh [branch_slug]
-#   branch_slug defaults to "latest" (i.e. quay.io/rakuos/rakuos-kde:latest)
+#   branch_slug defaults to "latest" (i.e. quay.io/rakuos/rakuos-gamescope:latest)
 #
 # Requires `rakuos-forge` to be installed (dnf install rakuos-forge, after
 # adding https://repo.rakuos.org/rakuos.repo).
@@ -31,7 +31,7 @@ rm -f "${SELF_DIR}/output.iso"
 rm -rf "${SELF_DIR}/output"
 rm -rf "${SELF_DIR}/work"
 
-IMAGE_REPO="quay.io/rakuos/rakuos-kde"
+IMAGE_REPO="quay.io/rakuos/rakuos-gamescope"
 BRANCH_SLUG="${1:-latest}"
 IMAGE_REF="${IMAGE_REPO}:${BRANCH_SLUG}"
 COMPRESSION="${COMPRESSION:-erofs}"
@@ -40,9 +40,9 @@ PLATFORM="${PLATFORM:-amd64}"
 # Matches .gitlab-ci.yml's LATEST_ISO_NAME: no branch segment for the
 # default/"latest" branch, otherwise the branch slug is inserted.
 if [ "${BRANCH_SLUG}" = "latest" ]; then
-  ISO_NAME="rakuos-kde-latest-${PLATFORM}.iso"
+  ISO_NAME="rakuos-gamescope-latest-${PLATFORM}.iso"
 else
-  ISO_NAME="rakuos-kde-${BRANCH_SLUG}-latest-${PLATFORM}.iso"
+  ISO_NAME="rakuos-gamescope-${BRANCH_SLUG}-latest-${PLATFORM}.iso"
 fi
 
 export RAKUFORGE_BUILDER_DISTRO="${BUILDER_DISTRO:-fedora}"
