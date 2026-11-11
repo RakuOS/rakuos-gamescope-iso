@@ -98,4 +98,10 @@ sed -i '$r /usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/raku
 # Remove rakuos-welcome autostart for the live environment
 rm -f /etc/xdg/autostart/rakuos-welcome.desktop
 
+# Remove Gamemode .desktop
+rm -f /etc/skel/Desktop/steamos-return-gamemode.desktop
+
+# Remove Steam autostart .desktop
+rm -f /etc/skel/.config/autostart/steam.desktop
+
 rm -rf /root/packages
